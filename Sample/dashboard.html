@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — NeuroStudy Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body class="app-body">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo"><a href="index.html">Neuro<span>Study</span></a></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Main</span>
+        <a href="dashboard.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </a>
+        <a href="marketplace.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          AI Tools
+        </a>
+        <a href="notes.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          Smart Notes
+        </a>
+        <a href="tool.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Summarizer
+        </a>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Account</span>
+        <a href="profile.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-mini">
+        <div class="user-avatar">?</div>
+        <div class="user-info"><span class="user-name">Guest</span></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="sidebar-toggle" id="sidebarToggle">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="topbar-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="dashSearch" placeholder="Search 100+ AI tools..." />
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-ghost btn-sm" id="authBtn">Sign In</button>
+        <a href="profile.html" class="user-avatar-btn">?</a>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <!-- HERO BANNER -->
+      <div class="dash-hero">
+        <div class="dash-hero-bg"></div>
+        <div class="dash-hero-content">
+          <div class="dash-hero-text">
+            <p class="dash-hero-label">✦ AI-Powered Learning</p>
+            <h1 id="greetingText">Good morning 👋</h1>
+            <p class="dash-hero-sub">What do you want to learn or create today?</p>
+          </div>
+          <a href="marketplace.html" class="btn btn-primary btn-lg dash-hero-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Explore 100+ Tools
+          </a>
+        </div>
+        <!-- Floating stat pills -->
+        <div class="hero-pills">
+          <div class="hero-pill">📄 Summarize</div>
+          <div class="hero-pill">✍️ Write Essays</div>
+          <div class="hero-pill">🧠 Flashcards</div>
+          <div class="hero-pill">💻 Code Help</div>
+          <div class="hero-pill">🌐 Hinglish</div>
+        </div>
+      </div>
+
+      <!-- GUEST BANNER -->
+      <div class="guest-banner" id="guestBanner" style="display:none">
+        <div class="guest-banner-text">
+          <span>👋 You're browsing as a guest.</span>
+          <span>Sign up to save your history, notes, and preferences.</span>
+        </div>
+        <a href="login.html" class="btn btn-primary btn-sm">Create Free Account</a>
+      </div>
+
+      <!-- QUICK ACCESS TOOLS -->
+      <div class="section-label-row">
+        <span class="section-label-text">⚡ Quick Access</span>
+        <a href="marketplace.html" class="card-link">All tools →</a>
+      </div>
+      <div class="quick-tools-grid">
+        <a href="tool.html?tool=Summarizer&icon=%F0%9F%93%84" class="quick-tool-card">
+          <div class="qtc-icon" style="background:rgba(59,130,246,0.15)">📄</div>
+          <div class="qtc-info">
+            <span class="qtc-name">Summarizer</span>
+            <span class="qtc-desc">Condense any text</span>
+          </div>
+          <svg class="qtc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tool.html?tool=Essay+Writer&icon=%E2%9C%8D%EF%B8%8F" class="quick-tool-card">
+          <div class="qtc-icon" style="background:rgba(139,92,246,0.15)">✍️</div>
+          <div class="qtc-info">
+            <span class="qtc-name">Essay Writer</span>
+            <span class="qtc-desc">Full essays instantly</span>
+          </div>
+          <svg class="qtc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tool.html?tool=Flashcard+Generator&icon=%F0%9F%A7%A0" class="quick-tool-card">
+          <div class="qtc-icon" style="background:rgba(6,182,212,0.15)">🧠</div>
+          <div class="qtc-info">
+            <span class="qtc-name">Flashcards</span>
+            <span class="qtc-desc">Study smarter</span>
+          </div>
+          <svg class="qtc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tool.html?tool=Code+Assistant&icon=%F0%9F%92%BB" class="quick-tool-card">
+          <div class="qtc-icon" style="background:rgba(16,185,129,0.15)">💻</div>
+          <div class="qtc-info">
+            <span class="qtc-name">Code Assistant</span>
+            <span class="qtc-desc">Debug & explain code</span>
+          </div>
+          <svg class="qtc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tool.html?tool=Translator&icon=%F0%9F%8C%90" class="quick-tool-card">
+          <div class="qtc-icon" style="background:rgba(245,158,11,0.15)">🌐</div>
+          <div class="qtc-info">
+            <span class="qtc-name">Hinglish</span>
+            <span class="qtc-desc">English → Hinglish</span>
+          </div>
+          <svg class="qtc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="notes.html" class="quick-tool-card">
+          <div class="qtc-icon" style="background:rgba(236,72,153,0.15)">📝</div>
+          <div class="qtc-info">
+            <span class="qtc-name">Smart Notes</span>
+            <span class="qtc-desc">Organize your ideas</span>
+          </div>
+          <svg class="qtc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- BOTTOM GRID: History + Notes -->
+      <div class="dash-bottom-grid">
+
+        <div class="dash-card">
+          <div class="card-header">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Recent Activity
+            </h3>
+            <a href="profile.html" class="card-link">View all</a>
+          </div>
+          <div class="tool-list" id="recentHistory">
+            <div class="tli-loading">Loading...</div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="card-header">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+              Your Notes
+            </h3>
+            <a href="notes.html" class="card-link">View all</a>
+          </div>
+          <div class="tool-list" id="recentNotes">
+            <div class="tli-loading">Loading...</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FLOATING AI BUTTON -->
+  <button class="ai-fab" id="aiFab" title="Open AI Tools">
+    <div class="rhombus-inner">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="fab-ring"></div>
+  </button>
+  <div class="ai-panel" id="aiPanel">
+    <div class="ai-panel-header">
+      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> AI Assistant</h3>
+      <button class="panel-close" id="panelClose"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="ai-panel-tools">
+      <a href="tool.html?tool=Summarizer&icon=%F0%9F%93%84" class="panel-tool">📄 Summarizer</a>
+      <a href="tool.html?tool=Essay+Writer&icon=%E2%9C%8D%EF%B8%8F" class="panel-tool">✍️ Essay Writer</a>
+      <a href="tool.html?tool=Flashcard+Generator&icon=%F0%9F%A7%A0" class="panel-tool">🧠 Flashcard Gen</a>
+      <a href="tool.html?tool=Research+Assistant&icon=%F0%9F%94%8D" class="panel-tool">🔍 Research Helper</a>
+      <a href="tool.html?tool=Code+Assistant&icon=%F0%9F%92%BB" class="panel-tool">💻 Code Assistant</a>
+      <a href="tool.html?tool=Translator&icon=%F0%9F%8C%90" class="panel-tool">🌐 Hinglish</a>
+    </div>
+    <div class="ai-panel-footer">
+      <a href="marketplace.html" class="btn btn-primary" style="width:100%;justify-content:center;">View All 100+ Tools</a>
+    </div>
+  </div>
+  <div class="panel-overlay" id="panelOverlay"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

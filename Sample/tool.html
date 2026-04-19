@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tool — NeuroStudy Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/tool.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body class="app-body">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo"><a href="index.html">Neuro<span>Study</span></a></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Main</span>
+        <a href="dashboard.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </a>
+        <a href="marketplace.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          AI Tools
+        </a>
+        <a href="notes.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          Smart Notes
+        </a>
+        <a href="tool.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Summarizer
+        </a>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Account</span>
+        <a href="profile.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-mini">
+        <div class="user-avatar">?</div>
+        <div class="user-info"><span class="user-name">Loading...</span></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="sidebar-toggle" id="sidebarToggle">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="topbar-breadcrumb">
+        <a href="marketplace.html">AI Tools</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span id="toolPageTitle">Tool</span>
+      </div>
+      <div class="topbar-right">
+        <a href="login.html" class="btn btn-ghost btn-sm" id="authBtn">Sign In</a>
+        <a href="profile.html" class="user-avatar-btn">?</a>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <!-- TOOL HEADER -->
+      <div class="tool-header">
+        <div class="tool-header-icon" id="toolPageIcon">📄</div>
+        <div class="tool-header-info">
+          <h1 id="toolPageTitle">Tool</h1>
+          <p id="toolPageDesc">AI-powered tool.</p>
+          <div class="tool-tags" id="toolPageTags">
+            <span class="tag">AI</span>
+            <span class="tag">Productivity</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOOL WORKSPACE -->
+      <div class="tool-workspace">
+
+        <!-- INPUT PANEL — text only, no file/url tabs -->
+        <div class="tool-panel input-panel">
+          <div class="panel-header">
+            <h3>Input</h3>
+            <!-- Mic button in header -->
+            <button class="mic-btn" id="toolMicBtn" title="Tap to speak" type="button" aria-label="Voice input">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/>
+                <path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/>
+              </svg>
+            </button>
+          </div>
+
+          <textarea
+            class="tool-textarea"
+            id="inputText"
+            placeholder="Type or paste your text here…"></textarea>
+
+          <div class="tool-options">
+            <div class="option-group">
+              <label>Output Length</label>
+              <div class="option-pills">
+                <button class="pill active">Short</button>
+                <button class="pill">Medium</button>
+                <button class="pill">Detailed</button>
+              </div>
+            </div>
+            <div class="option-group">
+              <label>Format</label>
+              <div class="option-pills">
+                <button class="pill active">Paragraph</button>
+                <button class="pill">Bullet Points</button>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-run" id="runBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Run Tool
+          </button>
+        </div>
+
+        <!-- OUTPUT PANEL -->
+        <div class="tool-panel output-panel">
+          <div class="panel-header">
+            <h3>Output</h3>
+            <div class="output-actions" id="outputActions" style="display:none">
+              <button class="speak-btn" id="speakBtn" title="Read aloud" aria-label="Read output aloud">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>
+                </svg>
+              </button>
+              <button class="icon-btn" id="copyBtn" title="Copy to clipboard">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              </button>
+              <button class="icon-btn" id="downloadBtn" title="Download as text file">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="output-idle" id="outputIdle">
+            <div class="idle-icon">✨</div>
+            <p>Your output will appear here</p>
+            <span>Enter text and click Run to get started</span>
+          </div>
+
+          <div class="output-loading" id="outputLoading" style="display:none">
+            <div class="loader-ring"></div>
+            <p>Processing your input...</p>
+            <div class="loading-steps">
+              <div class="load-step" id="step1">Reading input</div>
+              <div class="load-step" id="step2">Sending to AI</div>
+              <div class="load-step" id="step3">Generating output</div>
+            </div>
+          </div>
+
+          <div class="output-result" id="outputResult" style="display:none">
+            <div class="result-meta">
+              <span class="meta-badge">Output</span>
+              <span class="meta-info" id="wordCount"></span>
+            </div>
+            <div class="result-text" id="resultText"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FLOATING AI BUTTON -->
+  <button class="ai-fab" id="aiFab" title="Open AI Tools">
+    <div class="rhombus-inner">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="fab-ring"></div>
+  </button>
+  <div class="ai-panel" id="aiPanel">
+    <div class="ai-panel-header">
+      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> AI Assistant</h3>
+      <button class="panel-close" id="panelClose"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="ai-panel-tools">
+      <a href="tool.html?tool=Summarizer&icon=%F0%9F%93%84" class="panel-tool">📄 Summarizer</a>
+      <a href="tool.html?tool=Essay+Writer&icon=✍️" class="panel-tool">✍️ Essay Writer</a>
+      <a href="tool.html?tool=Flashcard+Generator&icon=🧠" class="panel-tool">🧠 Flashcard Gen</a>
+      <a href="tool.html?tool=Research+Assistant&icon=🔍" class="panel-tool">🔍 Research Helper</a>
+      <a href="tool.html?tool=Code+Assistant&icon=💻" class="panel-tool">💻 Code Assistant</a>
+      <a href="tool.html?tool=Translator&icon=🌐" class="panel-tool">🌐 Translator</a>
+    </div>
+    <div class="ai-panel-footer">
+      <a href="marketplace.html" class="btn btn-primary" style="width:100%;justify-content:center;">View All 100+ Tools</a>
+    </div>
+  </div>
+  <div class="panel-overlay" id="panelOverlay"></div>
+
+  <!-- Load scripts — voice.js MUST come before tool.js -->
+  <script src="js/api.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/tool.js"></script>
+</body>
+</html>

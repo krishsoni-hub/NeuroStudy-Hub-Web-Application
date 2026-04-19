@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify Email — NeuroStudy Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body class="auth-body">
+  <div class="auth-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div class="auth-container">
+    <a href="index.html" class="auth-logo">Neuro<span>Study</span> Hub</a>
+
+    <div class="auth-card" id="verifyCard" style="text-align:center">
+      <div id="verifyContent">
+        <div class="btn-spinner" style="width:36px;height:36px;border-width:3px;margin:0 auto 20px"></div>
+        <h2>Verifying your email...</h2>
+        <p class="auth-sub">Please wait a moment.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script>
+    const token = new URLSearchParams(window.location.search).get('token');
+    const content = document.getElementById('verifyContent');
+
+    async function verify() {
+      if (!token) {
+        content.innerHTML = `
+          <div style="font-size:40px;margin-bottom:16px">⚠️</div>
+          <h2>Invalid Link</h2>
+          <p style="color:var(--text-muted);margin:12px 0 20px">Verification token is missing.</p>
+          <a href="login.html" class="btn btn-primary">Back to Sign In</a>`;
+        return;
+      }
+
+      try {
+        const data = await AuthAPI.verifyEmail(token);
+        if (!data) {
+          content.innerHTML = `
+            <div style="font-size:40px;margin-bottom:16px">⚠️</div>
+            <h2>Server Offline</h2>
+            <p style="color:var(--text-muted);margin:12px 0 20px">Cannot reach the server. Please try again later.</p>
+            <a href="login.html" class="btn btn-primary">Back to Sign In</a>`;
+          return;
+        }
+        content.innerHTML = `
+          <div style="font-size:48px;margin-bottom:16px">✅</div>
+          <h2>Email Verified!</h2>
+          <p style="color:var(--text-muted);margin:12px 0 20px">${data.message || 'Your account is now active.'}</p>
+          <a href="login.html" class="btn btn-primary">Sign In Now</a>`;
+      } catch (err) {
+        content.innerHTML = `
+          <div style="font-size:40px;margin-bottom:16px">❌</div>
+          <h2>Verification Failed</h2>
+          <p style="color:var(--text-muted);margin:12px 0 20px">${err.message}</p>
+          <a href="login.html" class="btn btn-ghost" style="margin-right:8px">Back to Sign In</a>`;
+      }
+    }
+
+    verify();
+  </script>
+</body>
+</html>

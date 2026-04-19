@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — NeuroStudy Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body class="auth-body">
+  <div class="auth-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div class="auth-container">
+    <a href="index.html" class="auth-logo">Neuro<span>Study</span> Hub</a>
+
+    <!-- ── LOGIN ── -->
+    <div class="auth-card" id="loginCard">
+      <h2>Welcome back</h2>
+      <p class="auth-sub">Sign in to your account</p>
+
+      <div id="loginError" class="form-alert form-alert-error" style="display:none"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" required />
+          <span class="field-error" id="loginEmailErr"></span>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" required />
+            <button type="button" class="toggle-pw" data-target="loginPassword">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <span class="field-error" id="loginPasswordErr"></span>
+        </div>
+        <div style="text-align:right;margin-bottom:12px">
+          <button type="button" class="link-btn" id="showForgot" style="font-size:13px">Forgot password?</button>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="loginBtn">Sign In</button>
+      </form>
+
+      <p class="auth-switch">Don't have an account? <button class="link-btn" id="showRegister">Create one</button></p>
+    </div>
+
+    <!-- ── REGISTER ── -->
+    <div class="auth-card" id="registerCard" style="display:none">
+      <h2>Create account</h2>
+      <p class="auth-sub">Start learning smarter today</p>
+
+      <div id="registerError" class="form-alert form-alert-error" style="display:none"></div>
+
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="regName">Full Name</label>
+          <input type="text" id="regName" placeholder="John Student" autocomplete="name" required />
+          <span class="field-error" id="regNameErr"></span>
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Email</label>
+          <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email" required />
+          <span class="field-error" id="regEmailErr"></span>
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="regPassword" placeholder="Min. 6 characters" autocomplete="new-password" required />
+            <button type="button" class="toggle-pw" data-target="regPassword">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <span class="field-error" id="regPasswordErr"></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="registerBtn">Create Account</button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <button class="link-btn" id="showLogin">Sign in</button></p>
+    </div>
+
+    <!-- ── FORGOT PASSWORD ── -->
+    <div class="auth-card" id="forgotCard" style="display:none">
+      <h2>Reset password</h2>
+      <p class="auth-sub">Enter your email and we'll send a reset link</p>
+
+      <div id="forgotError" class="form-alert form-alert-error" style="display:none"></div>
+
+      <form id="forgotForm" novalidate>
+        <div class="form-group">
+          <label for="forgotEmail">Email</label>
+          <input type="email" id="forgotEmail" placeholder="you@example.com" autocomplete="email" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="forgotBtn">Send Reset Link</button>
+      </form>
+
+      <p class="auth-switch"><button class="link-btn" id="backToLogin">← Back to Sign In</button></p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

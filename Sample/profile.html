@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — NeuroStudy Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body class="app-body">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo"><a href="index.html">Neuro<span>Study</span></a></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-group-label">Main</span>
+        <a href="dashboard.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </a>
+        <a href="marketplace.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          AI Tools
+        </a>
+        <a href="notes.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          Smart Notes
+        </a>
+      </div>
+      <div class="nav-group">
+        <span class="nav-group-label">Account</span>
+        <a href="profile.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-mini">
+        <div class="user-avatar">?</div>
+        <div class="user-info">
+          <span class="user-name">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="sidebar-toggle" id="sidebarToggle">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="topbar-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search..." />
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-ghost btn-sm" id="logoutBtn">Sign Out</button>
+        <a href="profile.html" class="user-avatar-btn">?</a>
+      </div>
+    </header>
+
+    <div class="page-content">
+      <!-- PROFILE HERO -->
+      <div class="profile-hero">
+        <div class="profile-cover"></div>
+        <div class="profile-identity">
+          <div class="profile-avatar-wrap">
+            <div class="profile-avatar" id="heroAvatar">?</div>
+          </div>
+          <div class="profile-name-block">
+            <h1 id="heroName">Loading...</h1>
+            <span class="profile-handle" id="heroEmail"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-grid">
+
+        <!-- EDIT PROFILE CARD -->
+        <div class="profile-card info-card">
+          <div class="card-header">
+            <h3>Personal Info</h3>
+          </div>
+
+          <div id="profileAlert" class="form-alert" style="display:none"></div>
+
+          <form id="profileForm" novalidate>
+            <div class="form-group">
+              <label for="editName">Full Name</label>
+              <input type="text" id="editName" placeholder="Your name" />
+              <span class="field-error" id="editNameErr"></span>
+            </div>
+            <div class="form-group">
+              <label for="editEmail">Email</label>
+              <input type="email" id="editEmail" placeholder="you@example.com" />
+              <span class="field-error" id="editEmailErr"></span>
+            </div>
+            <div class="form-group">
+              <label for="editLocation">Location</label>
+              <input type="text" id="editLocation" placeholder="City, Country" />
+            </div>
+            <div class="form-group">
+              <label for="editField">Field of Study</label>
+              <input type="text" id="editField" placeholder="e.g. Computer Science" />
+            </div>
+            <button type="submit" class="btn btn-primary" id="saveProfileBtn">Save Changes</button>
+          </form>
+        </div>
+
+        <!-- CHANGE PASSWORD CARD -->
+        <div class="profile-card">
+          <div class="card-header"><h3>Change Password</h3></div>
+
+          <div id="passwordAlert" class="form-alert" style="display:none"></div>
+
+          <form id="passwordForm" novalidate>
+            <div class="form-group">
+              <label for="currentPw">Current Password</label>
+              <div class="input-wrap">
+                <input type="password" id="currentPw" placeholder="••••••••" />
+                <button type="button" class="toggle-pw" data-target="currentPw">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <span class="field-error" id="currentPwErr"></span>
+            </div>
+            <div class="form-group">
+              <label for="newPw">New Password</label>
+              <div class="input-wrap">
+                <input type="password" id="newPw" placeholder="Min. 6 characters" />
+                <button type="button" class="toggle-pw" data-target="newPw">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <span class="field-error" id="newPwErr"></span>
+            </div>
+            <div class="form-group">
+              <label for="confirmPw">Confirm New Password</label>
+              <input type="password" id="confirmPw" placeholder="Repeat new password" />
+              <span class="field-error" id="confirmPwErr"></span>
+            </div>
+            <button type="submit" class="btn btn-primary" id="savePwBtn">Update Password</button>
+          </form>
+        </div>
+
+        <!-- PREFERENCES CARD -->
+        <div class="profile-card prefs-card">
+          <div class="card-header"><h3>Preferences</h3></div>
+          <div id="prefsAlert" class="form-alert" style="display:none"></div>
+          <div class="pref-list" id="prefsList">
+            <div class="pref-row">
+              <div class="pref-info">
+                <span class="pref-name">Email Notifications</span>
+                <span class="pref-desc">Receive weekly study reports</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="pref-emailNotifications" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="pref-row">
+              <div class="pref-info">
+                <span class="pref-name">Auto-Save Notes</span>
+                <span class="pref-desc">Automatically save your work</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="pref-autoSaveNotes" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="pref-row">
+              <div class="pref-info">
+                <span class="pref-name">AI Suggestions</span>
+                <span class="pref-desc">Show contextual AI recommendations</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="pref-aiSuggestions" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="pref-row">
+              <div class="pref-info">
+                <span class="pref-name">Sound Effects</span>
+                <span class="pref-desc">Play sounds on actions</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="pref-soundEffects" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAVED HISTORY CARD -->
+        <div class="profile-card history-card">
+          <div class="card-header">
+            <h3>Tool History</h3>
+            <button class="card-link" id="clearHistoryBtn">Clear All</button>
+          </div>
+          <div class="history-list" id="historyList">
+            <div class="history-empty">Loading history...</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FLOATING AI BUTTON -->
+  <button class="ai-fab" id="aiFab" title="Open AI Tools">
+    <div class="rhombus-inner">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="fab-ring"></div>
+  </button>
+  <div class="ai-panel" id="aiPanel">
+    <div class="ai-panel-header">
+      <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> AI Assistant</h3>
+      <button class="panel-close" id="panelClose"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="ai-panel-tools">
+      <a href="tool.html?tool=Summarizer&icon=%F0%9F%93%84" class="panel-tool">📄 Summarizer</a>
+      <a href="tool.html" class="panel-tool">✍️ Essay Writer</a>
+      <a href="tool.html" class="panel-tool">🧠 Flashcard Gen</a>
+      <a href="tool.html" class="panel-tool">🔍 Research Helper</a>
+      <a href="tool.html" class="panel-tool">💻 Code Assistant</a>
+      <a href="tool.html" class="panel-tool">🌐 Translator</a>
+    </div>
+    <div class="ai-panel-footer">
+      <a href="marketplace.html" class="btn btn-primary" style="width:100%;justify-content:center;">View All 100+ Tools</a>
+    </div>
+  </div>
+  <div class="panel-overlay" id="panelOverlay"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

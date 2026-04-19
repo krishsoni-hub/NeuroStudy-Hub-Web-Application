@@ -1,0 +1,248 @@
+/* ─── Auth page layout ───────────────────────────────────────────────────────── */
+.auth-body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-base);
+}
+
+.auth-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Orbs — reuse landing page orb styles */
+.auth-bg .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+.auth-bg .orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, #3b82f6, transparent);
+  top: -150px; left: -150px;
+}
+.auth-bg .orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #8b5cf6, transparent);
+  bottom: -100px; right: -100px;
+  animation-delay: -4s;
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0); }
+  50%       { transform: translate(20px, -20px); }
+}
+
+/* ─── Container ──────────────────────────────────────────────────────────────── */
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.auth-logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.auth-logo span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── Card ───────────────────────────────────────────────────────────────────── */
+.auth-card {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+
+.auth-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+.auth-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* ─── Form groups ────────────────────────────────────────────────────────────── */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+/* Input — force dark theme even with browser autofill */
+.form-group input,
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus {
+  width: 100%;
+  background: var(--bg-elevated) !important;
+  -webkit-box-shadow: 0 0 0 1000px #263348 inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  caret-color: var(--text-primary);
+}
+.form-group input:focus {
+  border-color: rgba(99,102,241,0.55) !important;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12) !important;
+}
+.form-group input.error { border-color: #ef4444 !important; }
+
+/* Password input with toggle button */
+.input-wrap { position: relative; }
+.input-wrap input { padding-right: 44px; }
+.toggle-pw {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
+  line-height: 0;
+}
+.toggle-pw:hover { color: var(--text-primary); }
+
+/* ─── Validation messages ────────────────────────────────────────────────────── */
+.field-error {
+  display: none;
+  font-size: 12px;
+  color: #f87171;
+  margin-top: 5px;
+}
+
+/* ─── Alert banners ──────────────────────────────────────────────────────────── */
+.form-alert {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  word-break: break-word;
+}
+.form-alert-error {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #fca5a5;
+}
+.form-alert-success {
+  background: rgba(16,185,129,0.1);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: #6ee7b7;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────────── */
+.btn-full {
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 12px;
+  font-size: 15px;
+}
+
+/* ─── Footer links ───────────────────────────────────────────────────────────── */
+.auth-switch {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 20px;
+}
+.link-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--accent-blue);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+.link-btn:hover { color: var(--neon-blue); }
+
+/* ─── Button spinner ─────────────────────────────────────────────────────────── */
+.btn-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Toast ──────────────────────────────────────────────────────────────────── */
+.nsh-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-primary);
+  box-shadow: var(--shadow);
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.nsh-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.nsh-toast-success { border-color: rgba(16,185,129,0.3); }
+.nsh-toast-success .toast-icon { color: var(--accent-green); }
+.nsh-toast-error   { border-color: rgba(239,68,68,0.3); }
+.nsh-toast-error   .toast-icon { color: #ef4444; }
+.nsh-toast-info    .toast-icon { color: var(--accent-blue); }
