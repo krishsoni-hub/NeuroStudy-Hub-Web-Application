@@ -66,6 +66,9 @@ app.use((err, req, res, _next) => {
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 async function start() {
   // Try MongoDB — keep retrying in background so Atlas cold-start doesn't block
